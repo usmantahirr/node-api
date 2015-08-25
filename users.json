@@ -1,0 +1,68 @@
+[
+  {
+    "first_name": "usman",
+    "last_name": "tahir",
+    "email": "ch.usman.tahir@gmail.com",
+    "password": "somepass",
+    "billing_address": "house 104 lahore",
+    "state": "Punjab",
+    "country": "Lahore",
+    "student_profile": {
+      "gmat": {
+        "total_schore": 1000,
+        "quantitative": 300,
+        "analytical_writing": 300,
+        "date_taken": "Thu Aug 20 2015 11:59:30 GMT+0000"
+      },
+      "gre": {
+        "total_schore": 1000,
+        "quantitative": 300,
+        "analytical_writing": 300,
+        "date_taken": "Thu Aug 20 2015 11:59:30 GMT+0000"
+      }
+    },
+    "work_experience": {
+      "duration": 10,
+      "pre_mba": "Software",
+      "post_mba": "Management"
+    },
+    "education": {
+      "ug_cgpa": 3.78,
+      "ug_major": "Finance",
+      "grad_year": 2009
+    }
+  },
+  {
+    "first_name": "ali",
+    "last_name": "zahoor",
+    "email": "ali.zahoor@gmail.com",
+    "password": "somepass",
+    "billing_address": "somehouse at xyz",
+    "state": "Punjab",
+    "country": "Lahore",
+    "student_profile": {
+      "gmat": {
+        "total_schore": 1000,
+        "quantitative": 300,
+        "analytical_writing": 300,
+        "date_taken": "Thu Aug 20 2015 11:59:30 GMT+0000"
+      },
+      "gre": {
+        "total_schore": 1000,
+        "quantitative": 300,
+        "analytical_writing": 300,
+        "date_taken": "Thu Aug 20 2015 11:59:30 GMT+0000"
+      }
+    },
+    "work_experience": {
+      "duration": 10,
+      "pre_mba": "Management",
+      "post_mba": "Management"
+    },
+    "education": {
+      "ug_cgpa": 3.18,
+      "ug_major": "Finance",
+      "grad_year": 2010
+    }
+  }
+]

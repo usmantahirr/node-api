@@ -1,0 +1,99 @@
+[
+  {
+    "id": 1,
+    "icon": "images/uni-badges/harvard.png",
+    "school": "Harvard University",
+    "address": "Cambridge, MA 02138, United States",
+    "roundOne": "26th Jan 15",
+    "roundTwo": " 28th Mar 15",
+    "roundThree": "26th June 15",
+    "roundFour":"18th Dec 15",
+    "showAdd":false
+  }, {
+  "id": 2,
+  "icon": "images/uni-badges/cambridge.png",
+  "school": "Cambridge",
+  "address": "Cambridge, England, United Kingdom",
+  "roundOne": "26th Jan 15",
+  "roundTwo": " 28th Mar 15",
+  "roundThree": "26th June 15",
+  "roundFour":"18th Dec 15",
+  "site": "https://www.cam.ac.uk/"
+}, {
+  "id": 3,
+  "icon": "images/uni-badges/stanford.png",
+  "school": "Stanford University",
+  "address": "450 Serra Mall, Stanford, CA 94305, United States",
+  "roundOne": "26th Jan 15",
+  "roundTwo": " 28th Mar 15",
+  "roundThree": "26th June 15",
+  "roundFour":"18th Dec 15",
+  "site": "https://www.stanford.edu/"
+},
+  {
+    "id": 4,
+    "icon": "images/uni-badges/mit.png",
+    "school": "MIT",
+    "address": "77 Massachusetts Ave, Cambridge, MA 02139, United States",
+    "roundOne": "26th Jan 15",
+    "roundTwo": " 28th Mar 15",
+    "roundThree": "26th June 15",
+    "roundFour":"18th Dec 15",
+    "site": "http://web.mit.edu/"
+  },
+  {
+    "id": 5,
+    "icon": "images/uni-badges/yale.png",
+    "school": "Yale University",
+    "address": "New Haven, CT 06520, United States",
+    "roundOne": "26th Jan 15",
+    "roundTwo": " 28th Mar 15",
+    "roundThree": "26th June 15",
+    "roundFour":"18th Dec 15",
+    "site": "http://www.yale.edu/"
+  },
+  {
+    "id": 6,
+    "icon": "images/uni-badges/oxford.png",
+    "school": "University of Oxford",
+    "address": "Oxford, England, United Kingdom",
+    "roundOne": "26th Jan 15",
+    "roundTwo": " 28th Mar 15",
+    "roundThree": "26th June 15",
+    "roundFour":"18th Dec 15",
+    "site": "http://www.ox.ac.uk/"
+  },
+  {
+    "id": 7,
+    "icon": "images/uni-badges/columbia.png",
+    "school": "Columbia University",
+    "address": "116th St & Broadway, New York, NY 10027, United States",
+    "roundOne": "26th Jan 15",
+    "roundTwo": " 28th Mar 15",
+    "roundThree": "26th June 15",
+    "roundFour":"18th Dec 15",
+    "site": "http://www.columbia.edu/"
+  },
+  {
+    "id": 7,
+    "icon": "images/uni-badges/brown.png",
+    "school": "Brown University",
+    "address": "Providence, RI 02912, United States",
+    "roundOne": "26th Jan 15",
+    "roundTwo": " 28th Mar 15",
+    "roundThree": "26th June 15",
+    "roundFour":"18th Dec 15",
+    "site": "https://www.brown.edu/"
+  },
+  {
+    "id": 8,
+    "icon": "images/uni-badges/nyu.png",
+    "school": "New York University",
+    "address": "New York, NY, United States",
+    "roundOne": "26th Jan 15",
+    "roundTwo": " 28th Mar 15",
+    "roundThree": "26th June 15",
+    "roundFour":"18th Dec 15",
+    "site": "http://www.nyu.edu/"
+  }
+]
