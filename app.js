@@ -73,6 +73,7 @@ app.post('/schools', schools.addSchool);
 app.get('/bookmarks', bookmarks.findAll);
 app.get('/bookmarks/:user_id', bookmarks.findById);
 app.post('/bookmarks', bookmarks.addBookmark);
+app.delete('/bookmarks/:id', bookmarks.deleteBookmark);
 
 app.get('/bookmarked-schools', function (req, res) {
     res.json(bookmarkedSchools);

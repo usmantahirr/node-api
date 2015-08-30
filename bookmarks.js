@@ -33,3 +33,35 @@ exports.addBookmark = function(req, res) {
         });
     });
 };
+
+exports.deleteBookmark = function (req, res) {
+    var id = req.params.id,
+        user_id = req.query.user_id;
+
+    db.instance.collection(collection, function (err, collection) {
+        collection.remove({'_id':id}, { $elemMatch: {'user_id':user_id} }, function (err, result) {
+            console.log(result);
+            if (err) {
+                res.send({'error': err.toString()});
+            } else {
+                res.sendStatus(200);
+                console.log(id + ' deleted');
+            }
+        })
+    });
+};
+
+//exports.deleteUser = function(req, res) {
+//    var id = req.params.id;
+//    console.log('Deleting user: ' + id);
+//    db.collection('user', function(err, collection) {
+//        collection.remove({'_id':new BSON.ObjectID(id)}, {safe:true}, function(err, result) {
+//            if (err) {
+//                res.send({'error':'An error has occurred - ' + err});
+//            } else {
+//                console.log('' + result + ' document(s) deleted');
+//                res.send(req.body);
+//            }
+//        });
+//    });
+//};
