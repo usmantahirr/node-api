@@ -60,6 +60,7 @@ app.post('/auth', users.authenticate);
 app.get('/schools', schools.findAll);
 app.get('/schools/:id', schools.findById);
 app.post('/schools', schools.addSchool);
+app.delete('/schools/:id', schools.deleteSchool);
 
 //app.get('/users', function (req, res) {
 //    res.json();

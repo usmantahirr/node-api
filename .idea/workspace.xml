@@ -25,7 +25,7 @@
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="73" column="46" selection-start-line="73" selection-start-column="46" selection-end-line="73" selection-end-column="46" />
+              <caret line="62" column="48" selection-start-line="62" selection-start-column="48" selection-end-line="62" selection-end-column="48" />
               <folding>
                 <element signature="e#581#1014#0" expanded="false" />
               </folding>
@@ -43,21 +43,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bookmarks.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="bookmarks.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bookmarks.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5231417">
-              <caret line="48" column="13" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="schools.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="schools.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/schools.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="46" column="22" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.33239833">
+              <caret line="40" column="6" selection-start-line="40" selection-start-column="6" selection-end-line="40" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -67,7 +67,7 @@
         <entry file="file://$PROJECT_DIR$/db.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+              <caret line="7" column="54" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -90,14 +90,14 @@
         <option value="$PROJECT_DIR$/classProfile.json" />
         <option value="$PROJECT_DIR$/temp.json" />
         <option value="$PROJECT_DIR$/users.json" />
-        <option value="$PROJECT_DIR$/schools.js" />
         <option value="$PROJECT_DIR$/users.js" />
         <option value="$PROJECT_DIR$/bookmarkedSchools.json" />
         <option value="$PROJECT_DIR$/node_modules/bookmarks.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/db.js" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/bookmarks.js" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/db.js" />
+        <option value="$PROJECT_DIR$/schools.js" />
       </list>
     </option>
   </component>
@@ -285,27 +285,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/bookmarks.js</url>
-          <line>47</line>
-          <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/bookmarks.js</url>
-          <line>44</line>
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/bookmarks.js</url>
-          <line>42</line>
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="48" />
+      <option name="time" value="53" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -546,18 +529,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/mongodb/lib/mongo_client.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.33239833">
+          <caret line="420" column="0" selection-start-line="420" selection-start-column="0" selection-end-line="420" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/schools.js">
+    <entry file="file://$PROJECT_DIR$/bookmarks.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="22" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -573,17 +556,25 @@
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="73" column="46" selection-start-line="73" selection-start-column="46" selection-end-line="73" selection-end-column="46" />
+          <caret line="62" column="48" selection-start-line="62" selection-start-column="48" selection-end-line="62" selection-end-column="48" />
           <folding>
             <element signature="e#581#1014#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bookmarks.js">
+    <entry file="file://$PROJECT_DIR$/db.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5231417">
-          <caret line="48" column="13" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="54" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schools.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33239833">
+          <caret line="40" column="6" selection-start-line="40" selection-start-column="6" selection-end-line="40" selection-end-column="6" />
           <folding />
         </state>
       </provider>

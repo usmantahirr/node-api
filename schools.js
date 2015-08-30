@@ -33,6 +33,25 @@ exports.addSchool = function(req, res) {
         });
     });
 };
+
+
+exports.deleteSchool = function (req, res) {
+    var id = db.BSON(req.params.id);
+
+    db.instance.collection(collection, function (err, collection) {
+        collection.remove({'_id': id}, function (err, result) {
+            console.log(result);
+            if (err) {
+                res.send({'error': err.toString()});
+            } else {
+                res.sendStatus(200);
+                console.log(id + ' deleted');
+            }
+        })
+    });
+};
+
+
 //
 //exports.updateUser = function(req, res) {
 //    var id = req.params.id;
