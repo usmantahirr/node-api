@@ -36,35 +36,80 @@ exports.findAll = function(req, res) {
 
 exports.addUser = function(req, res) {
     var user = req.body;
-    console.log('Adding users: ' + JSON.stringify(user));
-    db.instance.collection('users', function(err, collection) {
-        collection.insert(user, {safe:true}, function(err, result) {
-            if (err) {
-                res.send({'error':'An error has occurred'});
-            } else {
-                console.log('Success: ' + JSON.stringify(result[0]));
-                res.send(result[0]);
-            }
-        });
-    });
+	if ( user.email == null || user.email==""){
+		res.status(400);
+		res.send({'error':'Email Address Missing'});
+	} else if(user.first_name == null || user.first_name==""){
+		res.status(400);
+		res.send({'error':'First Name  Missing'});
+	} else if(user.last_name == null || user.last_name==""){
+		res.status(400);
+		res.send({'error':'Last Name  Missing'});
+	} else if(user.password == null || user.password==""){
+		res.status(400);
+		res.send({'error':'Password Missing'});
+	} else if(user.billing_address == null || user.billing_address==""){
+		res.status(400);
+		res.send({'error':'Billing Address Missing'});
+	} else if(user.state == null || user.state==""){
+		res.status(400);
+		res.send({'error':'State Missing'});
+	}else {
+		console.log('Adding users: ' + JSON.stringify(user));
+		try {
+			db.instance.collection('users', function(err, collection) {
+				collection.insert(user, {safe:true}, function(err, result) {
+					if (err) {
+						if(err.errmsg.indexOf("dup key:") > -1){
+							res.status(400);
+							res.send({'error':'Email address already in use'});
+						} else {
+							res.status(400);
+							res.send({'error':'An unknown error has occurred'});
+						}
+						
+					} else {
+						console.log('Success: ' + JSON.stringify(result.ops[0]));
+						res.send(result.ops[0]);
+					}
+				});
+			});
+		} catch (errs){
+			res.status(400);
+			res.send({'error':'An unknown error has occurred ex'});
+		}
+	}
 };
+
+
+
 
 exports.updateUser = function(req, res) {
     var id = req.params.id;
-    var wine = req.body;
-    console.log('Updating wine: ' + id);
-    console.log(JSON.stringify(wine));
-    db.collection('wines', function(err, collection) {
-        collection.update({'_id':new BSON.ObjectID(id)}, wine, {safe:true}, function(err, result) {
-            if (err) {
-                console.log('Error updating wine: ' + err);
-                res.send({'error':'An error has occurred'});
-            } else {
-                console.log('' + result + ' document(s) updated');
-                res.send(wine);
-            }
-        });
-    });
+   	var user = req.body;   
+	console.log('Updating user: ' + id);
+    console.log(JSON.stringify(user));
+    try {
+		db.instance.collection('users', function(err, collection) {
+			idO=new db.BSON.ObjectID(id);
+			collection.update({'_id':idO}, { $set:  user  }, function(err, result) {
+				if (err) {
+					console.log('Error updating user: ' + err);
+					res.send({'error':'An error has occurred'});
+				} else {
+					if(result.result.n==0){						
+						res.send({'error':'No User Found'});
+					} else {
+						console.log('' + result + ' document(s) updated');
+						res.send({'Success':'User Information Updated'});
+					}
+				}
+			});		
+		});
+	} catch (errs){
+			res.status(400);
+			res.send({'error':'An unknown error has occurred ex'});
+	}
 };
 
 exports.deleteUser = function(req, res) {
