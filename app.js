@@ -61,16 +61,6 @@ app.get('/schools', schools.findAll);
 app.get('/schools/:id', schools.findById);
 app.post('/schools', schools.addSchool);
 app.delete('/schools/:id', schools.deleteSchool);
-
-//app.get('/users', function (req, res) {
-//    res.json();
-//});
-
-//app.get('/schools', function (req, res) {
-//    res.json(allSchools);
-//});
-//
-
 app.get('/bookmarks', bookmarks.findAll);
 app.get('/bookmarks/:user_id', bookmarks.findById);
 app.post('/bookmarks', bookmarks.addBookmark);
