@@ -2,9 +2,10 @@ var db = require('./db');
 
 exports.findById = function(req, res) {
     var id = req.params.id;
-    console.log('Retrieving wine: ' + id);
+	var oid = new db.BSON.ObjectID(id);
+    console.log('Retrieving user: ' + id);
     db.instance.collection('users', function(err, collection) {
-        collection.findOne({'_id':new BSON.ObjectID(id)}, function(err, item) {
+        collection.findOne({'_id':oid}, function(err, item) {
             res.send(item);
         });
     });

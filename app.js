@@ -60,11 +60,15 @@ app.post('/auth', users.authenticate);
 app.get('/schools', schools.findAll);
 app.get('/schools/:id', schools.findById);
 app.post('/schools', schools.addSchool);
+app.put('/schools/:id', schools.updateSchool);
 app.delete('/schools/:id', schools.deleteSchool);
 app.get('/bookmarks', bookmarks.findAll);
 app.get('/bookmarks/:user_id', bookmarks.findById);
 app.post('/bookmarks', bookmarks.addBookmark);
 app.delete('/bookmarks/:id', bookmarks.deleteBookmark);
+
+app.post('/essays', bookmarks.addEssay);
+app.get('/essays/:uid/:sid', bookmarks.getEssay);
 
 app.get('/bookmarked-schools', function (req, res) {
     res.json(bookmarkedSchools);
