@@ -31,6 +31,7 @@ exports.findByUserId = function(req, res) {
 											bookmark = schools[j];
 											bookmark.selectedRound = items[i].selectedRound;
 											bookmark.school_id = items[i].school_id;
+											bookmark._id = items[i]._id;
 											toSend.push(bookmark);
 											bookmark = {};
 										}
@@ -95,30 +96,36 @@ exports.getEssay = function(req, res) {
 			schoolCollection.findOne({
 				'_id': sid
 			}, function(err, item) {
-				sid = item;
 
-				var essayInfo = sid.essays;
+				if (item) {
+					sid = item;
 
-				db.instance.collection('essay_data', function(err, essayCollection) {
-					essayCollection.find({
-						'user_id': user_id,
-						'school_id': school_id
-					}).toArray(function(err, allEssayDetails) {
+					var essayInfo = sid.essays;
 
-						for (i in allEssayDetails) {
-							for (j in essayInfo) {
-								if (allEssayDetails[i].essay_id == essayInfo[j].essayUUID.toString()) {
-									allEssayDetails[i].limit = essayInfo[j].limit;
-									allEssayDetails[i].required = essayInfo[j].required;
-									allEssayDetails[i].question = essayInfo[j].question;
+					db.instance.collection('essay_data', function(err, essayCollection) {
+						essayCollection.find({
+							'user_id': user_id,
+							'school_id': school_id
+						}).toArray(function(err, allEssayDetails) {
+
+							for (i in allEssayDetails) {
+								for (j in essayInfo) {
+									if (allEssayDetails[i].essay_id == essayInfo[j].essayUUID.toString()) {
+										allEssayDetails[i].limit = essayInfo[j].limit;
+										allEssayDetails[i].required = essayInfo[j].required;
+										allEssayDetails[i].question = essayInfo[j].question;
+									}
 								}
-							}
 
-							//essaysToAdd[e].essayUUID=idO;				 
-						}
-						res.send(allEssayDetails);
+								//essaysToAdd[e].essayUUID=idO;				 
+							}
+							res.send(allEssayDetails);
+						});
 					});
-				});
+				} else {
+					res.send(item);
+				}
+				
 			});
 		});
 	}
@@ -213,8 +220,8 @@ exports.addBookmark = function(req, res) {
 };
 
 exports.deleteBookmark = function(req, res) {
-	var id = req.params.id,
-		user_id = req.query.user_id;
+	var id = db.BSON(req.params.id),
+		user_id = db.BSON(req.query.user_id);
 
 	db.instance.collection(collection, function(err, collection) {
 		collection.remove({
@@ -229,6 +236,9 @@ exports.deleteBookmark = function(req, res) {
 				res.send({
 					'error': err.toString()
 				});
+			} else if (result.result.n == 0) {
+				res.status(404);
+				res.send('Nothing Deleted');
 			} else {
 				res.sendStatus(200);
 				console.log(id + ' deleted');
