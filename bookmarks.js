@@ -41,6 +41,8 @@ exports.findByUserId = function(req, res) {
 							res.send(toSend);
 						});
 					});
+				} else {
+					res.send(items);
 				}
 			} else {
 				res.status(400);
@@ -130,6 +132,66 @@ exports.getEssay = function(req, res) {
 		});
 	}
 };
+
+exports.getAllEssays = function (req, res) {
+	if (!req.params.sid) {
+		res.status(404);
+		res.send('school id not found')
+	}
+	if (!req.params.uid) {
+		res.status(404);
+		res.send('no user id found')
+	}
+
+	school_id = db.BSON.ObjectID(req.params.sid);
+	user_id = db.BSON.ObjectID(req.params.uid);
+
+	db.instance.collection('schools', function (err, schoolCollection) {
+		schoolCollection.findOne({'_id': school_id}, {'school': true, 'essays': true}, function (err, schools) {
+			if (schools) {
+				db.instance.collection('essay_data', function(err, essayCollection) {
+					essayCollection.find({'school_id': school_id.toString(), 'user_id': user_id.toString()}).toArray(function (err, essays) {
+						var unCommonEssays = JSON.parse(JSON.stringify(schools.essays));
+						var toSend = [];
+						var item = {};
+						for (i in schools.essays) {
+							for (j in essays) {
+								 if(schools.essays[i].essayUUID.toString() === essays[j].essay_id) {
+									item = essays[j];
+									item.question = schools.essays[i].question;
+									item.limit = schools.essays[i].limit;
+									item.required = schools.essays[i].required;
+
+									unCommonEssays.splice(unCommonEssays.indexOf(schools.essays[i]),1);
+
+									toSend.push(item);
+									item = {};
+								 }
+							}
+						}
+
+						if (unCommonEssays.length > 0) {							
+							for (i in unCommonEssays) {
+								unCommonEssays[i].essay_id = unCommonEssays[i].essayUUID.toString();
+								delete unCommonEssays[i].essayUUID;
+							}
+						}
+
+						toSend = toSend.concat(unCommonEssays);
+						res.send(toSend);
+					});
+				});
+			} else {
+				res.send(schools);
+			}
+			
+		});
+	});
+}
+
+function getEssayData(school_id, user_id) {
+	
+}
 
 /**
  * 
