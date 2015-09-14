@@ -22,12 +22,12 @@ exports.findByUserId = function(req, res) {
 				if (items.length > 0) {
 					var toSend = [];
 					var bookmark = {};
-					db.instance.collection('schools', function (err, schoolCollection) {
-						schoolCollection.find().toArray(function (err, schools) {
+					db.instance.collection('schools', function(err, schoolCollection) {
+						schoolCollection.find().toArray(function(err, schools) {
 							if (schools) {
 								for (i in items) {
 									for (j in schools) {
-										if(items[i].school_id === schools[j]._id.toString()) {
+										if (items[i].school_id === schools[j]._id.toString()) {
 											bookmark = schools[j];
 											bookmark.selectedRound = items[i].selectedRound;
 											bookmark.school_id = items[i].school_id;
@@ -40,7 +40,7 @@ exports.findByUserId = function(req, res) {
 							res.send(toSend);
 						});
 					});
-				}				
+				}
 			} else {
 				res.status(400);
 				res.send('Unknown Error');
@@ -51,6 +51,7 @@ exports.findByUserId = function(req, res) {
 
 /**
  * Black Function
+ * Get bookmark on bookmark id
  */
 exports.findById = function(req, res) {
 	var id = req.params.bid;

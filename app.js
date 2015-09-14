@@ -12,9 +12,11 @@ var app = express();
 
 app.use(cors());
 app.use(bodyParser.json()); // support json encoded bodies
-app.use(bodyParser.urlencoded({extended: true})); // support encoded bodies
+app.use(bodyParser.urlencoded({
+    extended: true
+})); // support encoded bodies
 app.use('/request', multipartMiddleware);
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
 
     // Website you wish to allow to connect
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -30,26 +32,10 @@ app.use(function (req, res, next) {
 });
 
 /////////////////////////////////////////////////////////////////////////////
-//  VARIABLES
-/////////////////////////////////////////////////////////////////////////////
-var files = {
-    schools: 'allSchools.json',
-    bookmarks: 'bookmarkedSchools.json',
-    classProfiles: 'classProfile.json',
-    users: 'users.json',
-    admins: 'admins.json'
-};
-
-var allSchools = filer.readFileSync(files.schools);
-var bookmarkedSchools = filer.readFileSync(files.bookmarks);
-// var users = filer.readFileSync(files.users);
-var classProfiles = filer.readFileSync(files.classProfiles);
-
-
-/////////////////////////////////////////////////////////////////////////////
 //  REST END POINTS
 /////////////////////////////////////////////////////////////////////////////
 
+// Users CRUD
 app.get('/users', users.findAll);
 app.get('/users/:id', users.findById);
 app.post('/users', users.addUser);
@@ -57,37 +43,23 @@ app.put('/users/:id', users.updateUser);
 app.post('/auth', users.authenticate);
 // app.delete('/users/:id', users.deleteUser);
 
+// School CRUD
 app.get('/schools', schools.findAll);
 app.get('/schools/:id', schools.findById);
 app.post('/schools', schools.addSchool);
 app.put('/schools/:id', schools.updateSchool);
 app.delete('/schools/:id', schools.deleteSchool);
 
-// School CRUD
+// Bookmarks CRUD
 app.get('/bookmarks', bookmarks.findAll);
 app.get('/bookmarks/one/:bid', bookmarks.findById);
 app.get('/bookmarks/:user_id', bookmarks.findByUserId);
 app.post('/bookmarks', bookmarks.addBookmark);
 app.delete('/bookmarks/:id', bookmarks.deleteBookmark);
 
+// Essays CRUD
 app.post('/essays', bookmarks.addEssay);
 app.get('/essays/:uid/:sid', bookmarks.getEssay);
-app.get('/bookmarked-schools', function (req, res) {
-    res.json(bookmarkedSchools);
-});
-
-app.post('/bookmarked-schools', function (req, res) {
-    filer.writeFile(files.bookmarks, req.body, function () {
-        filer.readFile(files.bookmarks, function (error, object) {
-            bookmarkedSchools = object;
-            res.send(bookmarkedSchools);
-        });
-    });
-});
-
-app.get('/class-profile/:id', function (req, res) {
-    res.json(classProfiles);
-    console.log();
-});
 
 app.listen(process.env.PORT || 3000);
+

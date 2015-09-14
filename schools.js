@@ -110,6 +110,7 @@ exports.updateSchool = function(req, res) {
    	var schoolo = req.body;	
 	var essaysToAdd = schoolo.essays;	
 	delete schoolo.essays; 
+	delete schoolo._id;
 	
     try {
 		db.instance.collection('schools', function(err, collection) {
