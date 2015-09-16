@@ -60,6 +60,7 @@ app.delete('/bookmarks/:id', bookmarks.deleteBookmark);
 // Essays CRUD
 app.post('/essays', bookmarks.addEssay);
 app.get('/essays/:uid/:sid', bookmarks.getAllEssays);
+app.put('/essays/:id', bookmarks.editEssayData);
 
 app.listen(process.env.PORT || 3000);
 

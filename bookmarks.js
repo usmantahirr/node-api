@@ -194,7 +194,7 @@ function getEssayData(school_id, user_id) {
 }
 
 /**
- * 
+ * Add new Essay
  */
 exports.addEssay = function(req, res) {
 	var essay = req.body;
@@ -242,6 +242,32 @@ exports.addEssay = function(req, res) {
 				'error': 'An unknown error has occurred ex'
 			});
 		}
+	}
+};
+
+exports.editEssayData = function(req, res) {
+    var id = db.BSON.ObjectID(req.params.id);
+   	var essay = req.body;
+   	delete essay._id;
+	
+    try {
+		db.instance.collection('essay_data', function(err, essayCollection) {
+			essayCollection.update({'_id': id}, { $set:  essay  }, function(err, result) {
+				if (err) {
+					res.status(400);
+					res.send({'error':'An error has occurred'});
+				} else {
+					if(result.result.n == 0){
+						res.send({'error':'No School Found'});
+					} else {
+						res.send({'Success':'School Information Updated'});
+					}
+				}
+			});		
+		});
+	} catch (errs){
+		res.status(400);
+		res.send({'error':'An unknown error has occurred ex'});
 	}
 };
 
