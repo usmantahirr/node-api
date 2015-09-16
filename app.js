@@ -62,5 +62,8 @@ app.post('/essays', bookmarks.addEssay);
 app.get('/essays/:uid/:sid', bookmarks.getAllEssays);
 app.put('/essays/:id', bookmarks.editEssayData);
 
+
+// Admin Details
+app.post('/admin', users.adminAuth);
 app.listen(process.env.PORT || 3000);
 

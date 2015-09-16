@@ -127,3 +127,18 @@ exports.deleteUser = function(req, res) {
         });
     });
 };
+
+exports.adminAuth = function (req, res) {
+	var email = req.body.email,
+        password = req.body.password;
+
+    db.instance.collection('admins', function(err, collection) {
+        collection.findOne({'email': email, 'password': password}, function (err, item) {
+            if (item) {
+                res.send(item);
+            } else {
+                res.send(err);
+            }
+        });
+    });
+}
