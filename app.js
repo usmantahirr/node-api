@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 })); // support encoded bodies
 app.use('/request', multipartMiddleware);
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -62,8 +62,6 @@ app.post('/essays', bookmarks.addEssay);
 app.get('/essays/:uid/:sid', bookmarks.getAllEssays);
 app.put('/essays/:id', bookmarks.editEssayData);
 
-
 // Admin Details
 app.post('/admin', users.adminAuth);
 app.listen(process.env.PORT || 3000);
-
