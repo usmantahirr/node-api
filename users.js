@@ -90,7 +90,7 @@ exports.updateUser = function (req, res) {
     console.log(JSON.stringify(user));
     try {
         db.instance.collection('users', function (err, collection) {
-            idO = new db.BSON.ObjectID(id);
+            var idO = new db.BSON.ObjectID(id);
             collection.update({'_id': idO}, {$set: user}, function (err, result) {
                 if (err) {
                     console.log('Error updating user: ' + err);
