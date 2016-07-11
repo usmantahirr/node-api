@@ -49,12 +49,9 @@ exports.addUser = function (req, res) {
     } else if (user.password == null || user.password == "") {
         res.status(400);
         res.send({'error': 'Password Missing'});
-    } else if (user.billing_address == null || user.billing_address == "") {
+    } else if (user.country == null || user.country == "") {
         res.status(400);
-        res.send({'error': 'Billing Address Missing'});
-    } else if (user.state == null || user.state == "") {
-        res.status(400);
-        res.send({'error': 'State Missing'});
+        res.send({'error': 'Country Missing Missing'});
     } else {
         console.log('Adding users: ' + JSON.stringify(user));
         try {
